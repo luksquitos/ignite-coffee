@@ -1,5 +1,14 @@
 @import "tailwindcss";
 
+
+.centered-box {
+  /* Gambiarra para lidar com a imagem no banner :) */
+  /* Ao invés de ter um container ao redor de tudo, temos que 
+  centralizar todo mundo na mão */
+  margin: auto;
+  max-width: 1140px;
+}
+
 * {
   box-sizing: border-box;
   text-decoration: none;

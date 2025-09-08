@@ -1,25 +1,14 @@
 // import { Icon } from '../lib/types';
-import { ShoppingCartIcon, TimerIcon, PackageIcon, CoffeeIcon } from "@phosphor-icons/react"
-// import { ForwardRefExoticComponent } from "react";
-// import { IconProps } from "@phosphor-icons/react";
-
-// function IconOption({icon: IconComponent, backgoundColor: string, text: string}){
-//   return (
-//     <div>
-//       <IconComponent className=`${backgoundColor}`/>
-//       <p>{text}</p>
-//     </div>
-//   )
-// }
+import { ShoppingCartIcon, TimerIcon, PackageIcon, CoffeeIcon, type Icon } from "@phosphor-icons/react"
 
 
-// interface OptionProps {
-//   icon: ForwardRefExoticComponent<IconProps>;
-//   backgroundColor: string;
-//   text: string;
-// }
+interface OptionProps {
+  icon: Icon;
+  backgroundColor: string;
+  text: string;
+}
 
-function Option({ icon: IconComponent, backgroundColor, text }) {
+function Option({ icon: IconComponent, backgroundColor, text }: OptionProps) {
   return (
     <div className="flex items-center gap-3">
       {/* FIXME O icone dentro do círculo está estranho */}
@@ -34,11 +23,8 @@ function Option({ icon: IconComponent, backgroundColor, text }) {
 
 export function Home(){
   return (
-    //FIXME Tente outras combinações para o tamanho/posição da imagem.
-    // O fato da 'area de atuação' da tela ser diferente para diferentes monitores
-    // não será possível deixar igual no figma.
-    <div className="mt-24 bg-[url('/src/assets/background.png')] bg-fixed"> 
-      <div className="flex justify-between">
+    <div className="mt-24  bg-[url('/src/assets/background.png')] bg-center"> 
+      <div className="flex justify-between centered-box">
         <div className="max-w-[588px]">
           <p className="font-baloo font-extrabold text-5xl text-base-title ">Encontre o café perfeito para qualquer hora do dia</p>
           <p className="text-xl mt-4 text-base-subtitle">Com o Coffee Delivery você recebe seu café onde estiver, a qualquer hora</p>

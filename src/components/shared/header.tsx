@@ -5,7 +5,7 @@ import { MapPinIcon, ShoppingCartIcon } from "@phosphor-icons/react"
 export function Header(){
   //TODO Implementar balão flutuante que indica quantos itens o usuário tem no carrinho.
   return (
-    <div className="py-8 flex items-center justify-between">
+    <div className="py-8 flex items-center justify-between centered-box">
       <img src={igniteLogo} alt="#" />
       <div className="flex gap-3">
         <button className="bg-purple-light flex items-center gap-1 rounded px-[10px] py-2 text-purple-dark font-bold">
