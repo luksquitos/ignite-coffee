@@ -4,9 +4,12 @@ import { Router } from "../../router"
 export function App() {
 
   return (
-    <BrowserRouter>
-      <Router />
-    </BrowserRouter>
+    // por que usar o h-screen aqui ?
+    <body>
+      <BrowserRouter>
+        <Router />
+      </BrowserRouter>
+    </body>
   )
 }
 
