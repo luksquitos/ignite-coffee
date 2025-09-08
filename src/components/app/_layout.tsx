@@ -4,7 +4,7 @@ import { Header } from "../shared/header";
 
 export function DefaultLayout(){
   return (
-    <div className="m-auto max-w-[1140px]">
+    <div className="m-auto max-w-[1140px] border">
       <Header/>
       <Outlet/>
     </div>

@@ -8,7 +8,7 @@
 ## Links do Projeto
 
 - [Sobre o desafio](https://efficient-sloth-d85.notion.site/Desafio-02-Coffee-Delivery-30e42a21fdb44b09a85244fc2c3dbdf9)
-- [Figma](https://www.figma.com/design/OtOdDu2WK5KdFik2MdWqke/Coffee-Delivery-%E2%80%A2-Desafio-React--Copy-?node-id=2-1550&t=8Pfrp15nwDnf3kJR-0)
+- [Figma](https://www.figma.com/design/5yT9ZzZmRQRS4yivGGB3pl/Coffee-Delivery-%E2%80%A2-Desafio-React?node-id=2-12&p=f&t=ApkjsifcG04PI7BE-0)
 
 ## Conceitos aplicados
 - Estados
