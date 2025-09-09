@@ -22,7 +22,7 @@ function Option({ icon: IconComponent, backgroundColor, text }: OptionProps) {
 
 export function Banner() {
   return (
-    <div className="my-24 bg-[url('/src/assets/background.png')] bg-center">
+    <div className="my-24 bg-[url('/src/assets/background.png')] bg-no-repeat py-16 bg-center">
       <div className="flex justify-between centered-box">
         <div className="max-w-[588px]">
           <p className="font-baloo font-extrabold text-5xl text-base-title ">Encontre o café perfeito para qualquer hora do dia</p>
