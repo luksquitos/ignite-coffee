@@ -13,7 +13,7 @@ function Option({ icon: IconComponent, backgroundColor, text }: OptionProps) {
     <div className="flex items-center gap-3">
       {/* FIXME O icone dentro do círculo está estranho */}
       <IconComponent
-        className={`${backgroundColor} size-8 p-1.5 rounded-full text-white`}
+        className={`${backgroundColor} size-8 rounded-full text-white p-2`}
         weight="fill"
       />
       <p className="text-base-text">{text}</p>
