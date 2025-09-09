@@ -29,7 +29,7 @@ export function Banner() {
           <p className="text-xl mt-4 text-base-subtitle">Com o Coffee Delivery você recebe seu café onde estiver, a qualquer hora</p>
 
           {/* options */}
-          <div className="mt-16 grid grid-cols-2 gap-10">
+          <div className="mt-16 grid grid-cols-2 gap-5">
             <Option
               icon={ShoppingCartIcon}
               backgroundColor="bg-yellow-dark"
