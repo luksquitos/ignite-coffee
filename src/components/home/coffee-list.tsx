@@ -7,8 +7,7 @@ export function CoffeeList() {
   const [coffees, setCoffees] = useState<ICoffeeCard[]>(coffeeData)
 
   return (
-    // FIXME Por algum motivo a margem não está funcionando
-    <div className="border centered-box">
+    <div className="centered-box">
       <p className="font-baloo font-extrabold text-3xl text-base-subtitle">Nossos cafés</p>
       <section className="grid grid-cols-2 lg:grid-cols-4 gap-8 mt-14">
         {

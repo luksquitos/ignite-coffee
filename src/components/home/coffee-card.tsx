@@ -1,5 +1,5 @@
 import type { ICoffeeCard } from '../../@types/coffee-card-type'
-import { ShoppingCartSimpleIcon } from '@phosphor-icons/react'
+import { MinusIcon, PlusIcon, ShoppingCartSimpleIcon } from '@phosphor-icons/react'
 
 export function CoffeeCard({ id, name, description, categories, price, image }: ICoffeeCard) {
   return (
@@ -19,16 +19,23 @@ export function CoffeeCard({ id, name, description, categories, price, image }: 
         <p className="mt-4 font-baloo font-bold text-xl text-base-subtitle">{name}</p>
         <p className="mt-2 mx-5 text-base-label text-center text-[0.875rem]">{description}</p>
         {/* Buy section */}
-        {/* FIXME Justify incorreto */}
-        <section className="mt-8 w-52 h-9 flex justify-between items-center gap-6 border">
+        <section className="mt-8 w-52 h-9 flex justify-between items-center gap-6 ">
           <span className="centered gap-1">
             <p className="text-[0.875rem] text-base-text">R$</p>
             <p className="font-baloo font-extrabold text-2xl text-base-text">{price.toFixed(2).replace('.', ',')}</p>
           </span>
           <div className="centered gap-2">
             {/* será que é melhor fazer de outra forma ? */}
-            <span className="w-18 border">
-              OI
+            <span className=" p-2 centered gap-1 bg-base-button rounded-md">
+              <button>
+                {' '}
+                <MinusIcon className="text-purple" />
+              </button>
+              1
+              <button>
+                {' '}
+                <PlusIcon className="text-purple" />
+              </button>
             </span>
 
             <button>
@@ -38,7 +45,7 @@ export function CoffeeCard({ id, name, description, categories, price, image }: 
 
         </section>
       </div>
-      <div className="bg-base-card mt-5 h-[19.375rem] rounded-tl-[6px] rounded-br-[6px] rounded-tr-[2.25rem] rounded-bl-[2.25rem]"></div>
+      <div className="bg-base-card mt-5 h-[19.375rem] rounded-tl-md rounded-br-md rounded-tr-[2.25rem] rounded-bl-[2.25rem]"></div>
     </div>
   )
 }
