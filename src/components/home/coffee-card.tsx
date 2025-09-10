@@ -1,9 +1,13 @@
 import type { ICoffeeCard } from '../../@types/coffee-card-type'
 import { MinusIcon, PlusIcon, ShoppingCartSimpleIcon } from '@phosphor-icons/react'
+import { useState } from 'react'
 
 export function CoffeeCard({ id, name, description, categories, price, image }: ICoffeeCard) {
+  const [currentQuantity, setCurrentQuantity] = useState<number>(1)
+  const currentPrice = price * currentQuantity
+
   return (
-    <div className="h-80 relative">
+    <div  className="h-80 relative">
       <div className="flex flex-col items-center absolute">
         <img src={image} alt="Ícone do café" />
         <div className="centered gap-1">
@@ -22,24 +26,25 @@ export function CoffeeCard({ id, name, description, categories, price, image }: 
         <section className="mt-8 w-52 h-9 flex justify-between items-center gap-6 ">
           <span className="centered gap-1">
             <p className="text-[0.875rem] text-base-text">R$</p>
-            <p className="font-baloo font-extrabold text-2xl text-base-text">{price.toFixed(2).replace('.', ',')}</p>
+            <p className="font-baloo font-extrabold text-2xl text-base-text">{currentPrice.toFixed(2).replace('.', ',')}</p>
           </span>
-          <div className="centered gap-2">
+          <form className="centered gap-2">
             {/* será que é melhor fazer de outra forma ? */}
-            <span className=" p-2 centered gap-1 bg-base-button rounded-md">
-              <button>
+            <div className=" p-2 centered gap-2 bg-base-button rounded-md">
+              <button type="button" onClick={() => setCurrentQuantity(prev => prev - 1)}>
                 <MinusIcon weight="bold" className="text-purple hover:text-purple-dark" />
               </button>
-              1
-              <button>
+              <p>{currentQuantity}</p>
+
+              <button type="button" onClick={() => setCurrentQuantity(prev => prev + 1)}>
                 <PlusIcon weight="bold" className="text-purple hover:text-purple-dark" />
               </button>
-            </span>
+            </div>
 
             <button>
               <ShoppingCartSimpleIcon weight="fill" className="p-2 size-9 bg-purple-dark text-base-card rounded-md hover:bg-purple hover:cursor-pointer transition-colors" />
             </button>
-          </div>
+          </form>
 
         </section>
       </div>
