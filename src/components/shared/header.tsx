@@ -12,7 +12,7 @@ export function Header() {
           Porto Alegre, RS
         </button>
         <button className="bg-yellow-light rounded px-[10px] py-2">
-          <ShoppingCartIcon weight="fill" className="text-yellow-dark text-2xl" />
+          <ShoppingCartIcon weight="fill" className="text-yellow-dark text-2xl hover:cursor-pointer" />
         </button>
       </div>
     </div>

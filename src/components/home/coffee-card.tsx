@@ -28,18 +28,16 @@ export function CoffeeCard({ id, name, description, categories, price, image }: 
             {/* será que é melhor fazer de outra forma ? */}
             <span className=" p-2 centered gap-1 bg-base-button rounded-md">
               <button>
-                {' '}
-                <MinusIcon className="text-purple" />
+                <MinusIcon weight="bold" className="text-purple hover:text-purple-dark" />
               </button>
               1
               <button>
-                {' '}
-                <PlusIcon className="text-purple" />
+                <PlusIcon weight="bold" className="text-purple hover:text-purple-dark" />
               </button>
             </span>
 
             <button>
-              <ShoppingCartSimpleIcon weight="fill" className="p-2 size-9 bg-purple-dark text-base-card rounded-[6px]" />
+              <ShoppingCartSimpleIcon weight="fill" className="p-2 size-9 bg-purple-dark text-base-card rounded-md hover:bg-purple hover:cursor-pointer transition-colors" />
             </button>
           </div>
 
