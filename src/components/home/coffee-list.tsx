@@ -1,17 +1,13 @@
-import type { ICoffeeCard } from '../../@types/coffee-card-type'
-import { useState } from 'react'
 import coffeeData from '../../mocks/coffees.json'
 import { CoffeeCard } from './coffee-card'
 
 export function CoffeeList() {
-  const [coffees, setCoffees] = useState<ICoffeeCard[]>(coffeeData)
-
   return (
     <div className="centered-box">
       <p className="font-baloo font-extrabold text-3xl text-base-subtitle">Nossos cafés</p>
       <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-14">
         {
-          coffees.map((coffee) => {
+          coffeeData.map((coffee) => {
             return (
               <CoffeeCard
                 id={coffee.id}
