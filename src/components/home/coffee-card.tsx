@@ -7,7 +7,7 @@ export function CoffeeCard({ id, name, description, categories, price, image }: 
   const currentPrice = price * currentQuantity
 
   return (
-    <div  className="h-80 relative">
+    <div className="h-80 relative">
       <div className="flex flex-col items-center absolute">
         <img src={image} alt="Ícone do café" />
         <div className="centered gap-1">
@@ -35,7 +35,6 @@ export function CoffeeCard({ id, name, description, categories, price, image }: 
                 <MinusIcon weight="bold" className="text-purple hover:text-purple-dark" />
               </button>
               <p>{currentQuantity}</p>
-
               <button type="button" onClick={() => setCurrentQuantity(prev => prev + 1)}>
                 <PlusIcon weight="bold" className="text-purple hover:text-purple-dark" />
               </button>
