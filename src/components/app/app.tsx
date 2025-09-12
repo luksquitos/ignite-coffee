@@ -1,15 +1,17 @@
-import { BrowserRouter } from "react-router-dom"
-import { Router } from "../../router"
+import { BrowserRouter } from 'react-router-dom'
+import { CartContextProvider } from '../../providers/cart-provider'
+import { Router } from '../../router'
 
 export function App() {
-
   return (
-    // por que usar o h-screen aqui ?
+  // por que usar o h-screen aqui ?
+
     <body>
       <BrowserRouter>
-        <Router />
+        <CartContextProvider>
+          <Router />
+        </CartContextProvider>
       </BrowserRouter>
     </body>
   )
 }
-
