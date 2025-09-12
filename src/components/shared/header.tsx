@@ -1,8 +1,10 @@
 import { MapPinIcon, ShoppingCartIcon } from '@phosphor-icons/react'
 import { NavLink } from 'react-router-dom'
 import igniteLogo from '../../assets/logo.svg'
+import { useCart } from '../../providers/cart-provider'
 
 export function Header() {
+  const { cartHasItems, cartItemsCount } = useCart()
   return (
     <header className="py-8 flex items-center justify-between centered-box">
       <NavLink to="/">
@@ -16,7 +18,9 @@ export function Header() {
 
         <NavLink to="/payment" className="bg-yellow-light relative rounded p-2.5">
           {/* Butão flutuante de itens */}
-          {/* <div className="bg-yellow-dark rounded-full size-5 absolute -top-1.5 -right-2.5 centered text-white font-bold text-xs">3</div> */}
+          {
+            cartHasItems ? <div className="bg-yellow-dark rounded-full size-5 absolute -top-1.5 -right-2.5 centered text-white font-bold text-xs">{cartItemsCount}</div> : <></>
+          }
           <ShoppingCartIcon weight="fill" className="text-yellow-dark text-2xl hover:cursor-pointer" />
         </NavLink>
       </div>

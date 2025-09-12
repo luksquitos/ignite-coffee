@@ -17,10 +17,14 @@ export function CartContextProvider({ children }: { children: ReactNode }) {
   const cartItemsCount = cart.length
 
   function addCoffeeToCart(cartItem: ICartItem) {
+    // FIXME Verificar se item já está no carrinho.
+    // Caso sim, apenas adicione a quantidade desejada
     setCart(item => [...cart, cartItem])
   }
 
   function removeCoffeeFromCart(cartItem: ICartItem) {
+    // FIXME Verificar se item já está no carrinho.
+    // Caso sim, apenas retireg a quantidade desejada
     setCart(item => cart.filter((item) => {
       return item.coffee.id !== cartItem.coffee.id
     }))
