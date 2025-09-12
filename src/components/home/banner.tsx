@@ -23,13 +23,13 @@ function Option({ icon: IconComponent, backgroundColor, text }: OptionProps) {
 export function Banner() {
   return (
     <div className="my-24 bg-[url('/src/assets/background.png')] bg-no-repeat py-16 bg-center">
-      <div className="flex justify-between centered-box">
+      <div className="lg:flex justify-between centered-box">
         <div className="max-w-[588px]">
           <p className="font-baloo font-extrabold text-5xl text-base-title ">Encontre o café perfeito para qualquer hora do dia</p>
           <p className="text-xl mt-4 text-base-subtitle">Com o Coffee Delivery você recebe seu café onde estiver, a qualquer hora</p>
 
           {/* options */}
-          <div className="mt-16 grid grid-cols-2 gap-5">
+          <div className="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-5">
             <Option
               icon={ShoppingCartIcon}
               backgroundColor="bg-yellow-dark"

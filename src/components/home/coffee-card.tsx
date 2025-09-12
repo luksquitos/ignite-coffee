@@ -1,13 +1,21 @@
+import type { ICartItem } from '../../@types/cart-item-type'
 import type { ICoffeeCard } from '../../@types/coffee-card-type'
 import { MinusIcon, PlusIcon, ShoppingCartSimpleIcon } from '@phosphor-icons/react'
 import { useState } from 'react'
+import { useCart } from '../../providers/cart-provider'
 
 export function CoffeeCard({ id, name, description, categories, price, image }: ICoffeeCard) {
   const [currentQuantity, setCurrentQuantity] = useState<number>(1)
   const currentPrice = price * currentQuantity
+  const { addCoffeeToCart } = useCart()
+  // Objeto a ser adicionado ao carrinho
+  const coffeeToAdd: ICartItem = {
+    coffee: { id, name, description, categories, price, image },
+    quantity: currentQuantity,
+  }
 
   return (
-    <div  className="h-80 relative">
+    <div className="h-80 relative">
       <div className="flex flex-col items-center absolute">
         <img src={image} alt="Ícone do café" />
         <div className="centered gap-1">
@@ -35,13 +43,12 @@ export function CoffeeCard({ id, name, description, categories, price, image }: 
                 <MinusIcon weight="bold" className="text-purple hover:text-purple-dark" />
               </button>
               <p>{currentQuantity}</p>
-
               <button type="button" onClick={() => setCurrentQuantity(prev => prev + 1)}>
                 <PlusIcon weight="bold" className="text-purple hover:text-purple-dark" />
               </button>
             </div>
 
-            <button>
+            <button type="button" onClick={() => addCoffeeToCart(coffeeToAdd)}>
               <ShoppingCartSimpleIcon weight="fill" className="p-2 size-9 bg-purple-dark text-base-card rounded-md hover:bg-purple hover:cursor-pointer transition-colors" />
             </button>
           </form>
