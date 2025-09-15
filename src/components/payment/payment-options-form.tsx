@@ -1,16 +1,10 @@
-import type { Icon } from '@phosphor-icons/react'
 import { BankIcon, CreditCardIcon, CurrencyDollarIcon, MoneyIcon } from '@phosphor-icons/react'
-
-function PaymentOption({ icon: IconComponent, name }: { icon: Icon, name: string }) {
-  return (
-    <button type="button" className="flex flex-1 gap-3 rounded-md p-4 bg-base-button hover:bg-base-hover hover:cursor-pointer">
-      <IconComponent className="size-4 text-purple" weight="regular" />
-      <p className="text-base-text text-xs">{name.toUpperCase()}</p>
-    </button>
-  )
-}
+import { useState } from 'react'
+import { PaymentOption } from './payment-option'
 
 export function PaymentOptionsForm() {
+  const [paymentSelected, setPaymentSelected] = useState('')
+
   return (
     <form action="" className="mt-3 w-[40rem] h-52 p-10 rounded-md bg-base-card">
       <main>
@@ -26,14 +20,20 @@ export function PaymentOptionsForm() {
           <PaymentOption
             icon={CreditCardIcon}
             name="Cartão de Crédito"
+            onSelect={() => setPaymentSelected('Cartão de Crédito')}
+            isActive={paymentSelected === 'Cartão de Crédito'}
           />
           <PaymentOption
             icon={BankIcon}
             name="Cartão de Débito"
+            onSelect={() => setPaymentSelected('Cartão de Débito')}
+            isActive={paymentSelected === 'Cartão de Débito'}
           />
           <PaymentOption
             icon={MoneyIcon}
             name="Dinheiro"
+            onSelect={() => setPaymentSelected('Dinheiro')}
+            isActive={paymentSelected === 'Dinheiro'}
           />
         </div>
 
