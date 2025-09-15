@@ -1,5 +1,13 @@
-export function Payment(){
+import { AddressForm } from '../components/payment/address-form'
+import { PaymentOptionsForm } from '../components/payment/payment-options-form'
+
+export function Payment() {
   return (
-    <h1>Pagamento</h1>
+    <div className="centered-box grid grid-cols-1 lg:grid-cols-2">
+      <div>
+        <AddressForm />
+        <PaymentOptionsForm />
+      </div>
+    </div>
   )
 }
