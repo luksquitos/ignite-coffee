@@ -5,13 +5,12 @@ import { Router } from '../../router'
 export function App() {
   return (
   // por que usar o h-screen aqui ?
-
-    <body>
+    <div>
       <BrowserRouter>
         <CartContextProvider>
           <Router />
         </CartContextProvider>
       </BrowserRouter>
-    </body>
+    </div>
   )
 }
