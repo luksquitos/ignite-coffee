@@ -1,4 +1,5 @@
 import { MapPinLineIcon } from '@phosphor-icons/react'
+import { Input } from '../ui/input'
 
 export function AddressForm() {
   return (
@@ -12,6 +13,10 @@ export function AddressForm() {
               <p className="text-base-subtitle">Endereço de entrega</p>
               <p className="text-base-text text-sm">Informe o endereço onde deseja receber seu pedido </p>
             </div>
+          </div>
+          {/* Inputs */}
+          <div>
+            <Input placeholder="CEP" />
           </div>
         </main>
       </form>
