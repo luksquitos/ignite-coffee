@@ -3,6 +3,7 @@ import type { ICoffeeCard } from '../../@types/coffee-card-type'
 import { MinusIcon, PlusIcon, ShoppingCartSimpleIcon } from '@phosphor-icons/react'
 import { useState } from 'react'
 import { useCart } from '../../providers/cart-provider'
+import { Counter } from '../ui/counter'
 
 export function CoffeeCard({ id, name, description, categories, price, image }: ICoffeeCard) {
   const [currentQuantity, setCurrentQuantity] = useState<number>(1)
@@ -37,17 +38,10 @@ export function CoffeeCard({ id, name, description, categories, price, image }: 
             <p className="font-baloo font-extrabold text-2xl text-base-text">{currentPrice.toFixed(2).replace('.', ',')}</p>
           </span>
           <form className="centered gap-2">
-            {/* será que é melhor fazer de outra forma ? */}
-            <div className=" p-2 centered gap-2 bg-base-button rounded-md">
-              <button type="button" onClick={() => setCurrentQuantity(prev => prev - 1)}>
-                <MinusIcon weight="bold" className="text-purple hover:text-purple-dark" />
-              </button>
-              <p>{currentQuantity}</p>
-              <button type="button" onClick={() => setCurrentQuantity(prev => prev + 1)}>
-                <PlusIcon weight="bold" className="text-purple hover:text-purple-dark" />
-              </button>
-            </div>
-
+            <Counter
+              value={currentQuantity}
+              setValue={setCurrentQuantity}
+            />
             <button type="button" onClick={() => addCoffeeToCart(coffeeToAdd)}>
               <ShoppingCartSimpleIcon weight="fill" className="p-2 size-9 bg-purple-dark text-base-card rounded-md hover:bg-purple hover:cursor-pointer transition-colors" />
             </button>
