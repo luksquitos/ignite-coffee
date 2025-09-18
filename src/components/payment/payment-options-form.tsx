@@ -6,7 +6,7 @@ export function PaymentOptionsForm() {
   const [paymentSelected, setPaymentSelected] = useState('')
 
   return (
-    <form action="" className="mt-3 w-[40rem] h-52 p-10 rounded-md bg-base-card">
+    <form action="" className="mt-3 h-52 p-10 rounded-md bg-base-card">
       <main>
         <div className="flex items-start gap-2">
           <CurrencyDollarIcon className="size-5.5 text-purple" />

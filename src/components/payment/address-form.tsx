@@ -3,9 +3,9 @@ import { Input } from '../ui/input'
 
 export function AddressForm() {
   return (
-    <div className="centered-box mt-10! rounded-md">
+    <div className="centered-box mt-10!">
       <p className="text-base-subtitle text-lg font-bold">Complete seu pedido</p>
-      <form action="" className="mt-4  rounded-md p-10 w-[40rem] h-[23.25rem] bg-base-card">
+      <form action="" className="mt-4  rounded-md p-10 bg-base-card">
         <main className="">
           <div className="flex items-start gap-2">
             <MapPinLineIcon className="size-5.5 text-yellow-dark" />
