@@ -3,6 +3,7 @@ import type { ICartItem } from '../@types/cart-item-type'
 import { createContext, useContext, useState } from 'react'
 
 interface ICartContext {
+  cart: ICartItem[]
   cartHasItems: boolean
   cartItemsCount: number
   addCoffeeToCart: (cartItem: ICartItem) => void
@@ -19,19 +20,19 @@ export function CartContextProvider({ children }: { children: ReactNode }) {
   function addCoffeeToCart(cartItem: ICartItem) {
     // FIXME Verificar se item já está no carrinho.
     // Caso sim, apenas adicione a quantidade desejada
-    setCart(item => [...cart, cartItem])
+    setCart(() => [...cart, cartItem])
   }
 
   function removeCoffeeFromCart(cartItem: ICartItem) {
     // FIXME Verificar se item já está no carrinho.
     // Caso sim, apenas retireg a quantidade desejada
-    setCart(item => cart.filter((item) => {
+    setCart(() => cart.filter((item) => {
       return item.coffee.id !== cartItem.coffee.id
     }))
   }
 
   return (
-    <CartContext.Provider value={{ cartHasItems, cartItemsCount, addCoffeeToCart, removeCoffeeFromCart }}>
+    <CartContext.Provider value={{ cart, cartHasItems, cartItemsCount, addCoffeeToCart, removeCoffeeFromCart }}>
       {children}
     </CartContext.Provider>
   )
