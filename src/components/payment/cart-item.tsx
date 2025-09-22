@@ -15,10 +15,9 @@ export function CartItem({ coffee, quantity }: ICartItem) {
             <Counter
               value={quantity}
               textMinor
-              // className="py-[5.5px]"
             />
 
-            <button className="centered bg-base-button gap-1 rounded-md p-2">
+            <button className="centered bg-base-button gap-1 rounded-md p-2 hover:bg-base-hover">
               <TrashIcon className="text-purple" />
               <p className="text-base-text text-xs">REMOVER</p>
             </button>
