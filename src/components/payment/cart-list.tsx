@@ -1,8 +1,10 @@
+import { useReducer } from 'react'
 import { useCart } from '@/providers/cart-provider'
 import { CartItem } from './cart-item'
 
 export function CartList() {
   const { cart } = useCart()
+  const { cartItemsSum } = useReducer((item) => {})
   return (
 
     <div className="centered-box mt-10!">
@@ -22,6 +24,25 @@ export function CartList() {
             )
           })
         }
+        {/* Soma */}
+        <div>
+          <div className="flex justify-between">
+            <p className="text-base-text">Total de Itens</p>
+            <p className="text-base-text">R$ 20,00</p>
+          </div>
+          <div className="mt-3 flex justify-between">
+            <p className="text-base-text">Entrega</p>
+            <p className="text-base-text">R$ 4,50</p>
+          </div>
+          <div className="mt-3 flex justify-between">
+            <p className="font-bold text-xl text-base-subtitle">Total</p>
+            <p className="font-bold text-xl text-base-subtitle">R$ 24,50</p>
+          </div>
+        </div>
+
+        <button className="mt-6 w-full py-2.5 bg-yellow text-white font-bold text-sm rounded-md hover:bg-yellow-dark hover:cursor-pointer transition">
+          CONFIRMAR PEDIDO
+        </button>
 
       </section>
 
