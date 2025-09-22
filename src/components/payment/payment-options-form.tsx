@@ -16,7 +16,7 @@ export function PaymentOptionsForm() {
           </div>
         </div>
         {/* Options */}
-        <div className=" mt-8 centered gap-3">
+        <div className=" mt-8 centered gap-3 flex-wrap">
           <PaymentOption
             icon={CreditCardIcon}
             name="Cartão de Crédito"
