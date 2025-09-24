@@ -1,11 +1,13 @@
-import { useReducer } from 'react'
 import { useCart } from '@/providers/cart-provider'
 import { CartItem } from './cart-item'
 import { EmptyCart } from './empty-cart'
 
 export function CartList() {
   const { cart, cartHasItems } = useCart()
-  const { cartItemsSum } = useReducer((item) => {})
+  const cartItemsSum = cart.reduce((total, item) => {
+    return total + (item.coffee.price * item.quantity)
+  }, 0)
+  const shipping = 4.50
 
   return (
 
@@ -29,15 +31,24 @@ export function CartList() {
           <div>
             <div className="flex justify-between">
               <p className="text-base-text">Total de Itens</p>
-              <p className="text-base-text">R$ 20,00</p>
+              <p className="text-base-text">
+                R$
+                {cartItemsSum.toFixed(2).replace('.', ',')}
+              </p>
             </div>
             <div className="mt-3 flex justify-between">
               <p className="text-base-text">Entrega</p>
-              <p className="text-base-text">R$ 4,50</p>
+              <p className="text-base-text">
+                R$
+                {shipping.toFixed(2).replace('.', ',')}
+              </p>
             </div>
             <div className="mt-3 flex justify-between">
               <p className="font-bold text-xl text-base-subtitle">Total</p>
-              <p className="font-bold text-xl text-base-subtitle">R$ 24,50</p>
+              <p className="font-bold text-xl text-base-subtitle">
+                R$
+                {(cartItemsSum + shipping).toFixed(2).replace('.', ',')}
+              </p>
             </div>
           </div>
 
