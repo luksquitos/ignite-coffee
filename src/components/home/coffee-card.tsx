@@ -40,6 +40,7 @@ export function CoffeeCard({ coffee }: { coffee: ICoffeeCard }) {
             <Counter
               value={currentQuantity}
               setValue={setCurrentQuantity}
+              className="py-2"
             />
             <button type="button" onClick={() => addCoffeeToCart(coffeeToAdd)}>
               <ShoppingCartSimpleIcon weight="fill" className="p-2 size-9 bg-purple-dark text-base-card rounded-md hover:bg-purple hover:cursor-pointer transition-colors" />

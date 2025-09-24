@@ -4,10 +4,10 @@ import { MinusIcon, PlusIcon } from '@phosphor-icons/react'
 interface CounterProps {
   value: number
   setValue: Dispatch<SetStateAction<number>>
-  textMinor?: boolean
+  className: string
 }
 
-export function Counter({ value, setValue, textMinor }: CounterProps) {
+export function Counter({ value, setValue, className }: CounterProps) {
   function add() {
     const maxValue = 10
 
@@ -29,11 +29,11 @@ export function Counter({ value, setValue, textMinor }: CounterProps) {
   }
 
   return (
-    <div className="p-2 centered gap-2 bg-base-button rounded-md">
+    <div className={`px-2 centered gap-2 bg-base-button rounded-md ${className}`}>
       <button type="button" onClick={remove}>
         <MinusIcon weight="bold" className="text-purple hover:text-purple-dark size-3.5" />
       </button>
-      <p className={textMinor ? `text-xs` : ''}>{value}</p>
+      <p>{value}</p>
       <button type="button" onClick={add}>
         <PlusIcon weight="bold" className="text-purple hover:text-purple-dark size-3.5" />
       </button>

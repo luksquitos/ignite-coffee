@@ -14,10 +14,10 @@ export function CartItem({ cartItem }: { cartItem: ICartItem }) {
         <img src={cartItem.coffee.image} alt="Ícone do Café" className="size-16" />
         <div className="flex flex-col gap-2">
           <p className="text-base-subtitle">{cartItem.coffee.name}</p>
-          <div className="centered gap-2">
+          <div className="centered gap-2 items-stretch!">
             <Counter
               value={cartItem.quantity}
-              textMinor
+              className="py-1.5"
             />
 
             <button onClick={() => removeCoffeeFromCart(cartItem)} className="centered bg-base-button gap-1 rounded-md p-2 hover:bg-base-hover">
