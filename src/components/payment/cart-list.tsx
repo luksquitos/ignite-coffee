@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom'
 import { useCart } from '@/providers/cart-provider'
 import { CartItem } from './cart-item'
 import { EmptyCart } from './empty-cart'
@@ -55,9 +56,11 @@ export function CartList() {
         )}
 
         {cartHasItems && (
-          <button className="mt-6 w-full py-2.5 bg-yellow text-white font-bold text-sm rounded-md hover:bg-yellow-dark hover:cursor-pointer transition">
-            CONFIRMAR PEDIDO
-          </button>
+          <NavLink to="/success">
+            <button className="mt-6 w-full py-2.5 bg-yellow text-white font-bold text-sm rounded-md hover:bg-yellow-dark hover:cursor-pointer transition">
+              CONFIRMAR PEDIDO
+            </button>
+          </NavLink>
         )}
 
       </section>
