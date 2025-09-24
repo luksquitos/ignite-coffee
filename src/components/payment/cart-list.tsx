@@ -57,7 +57,7 @@ export function CartList() {
 
         {cartHasItems && (
           <NavLink to="/success">
-            <button className="mt-6 w-full py-2.5 bg-yellow text-white font-bold text-sm rounded-md hover:bg-yellow-dark hover:cursor-pointer transition">
+            <button type="submit" className="mt-6 w-full py-2.5 bg-yellow text-white font-bold text-sm rounded-md hover:bg-yellow-dark hover:cursor-pointer transition">
               CONFIRMAR PEDIDO
             </button>
           </NavLink>

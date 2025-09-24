@@ -16,7 +16,7 @@ export function Payment() {
   return (
     <form onSubmit={handleSubmit(handleFormSubmit)} className="centered-box border grid grid-cols-1 lg:grid-cols-[55%_45%] gap-8">
       <div>
-        <AddressForm />
+        <AddressForm register={register} />
         <PaymentOptionsForm />
       </div>
       <CartList />
