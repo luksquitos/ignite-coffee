@@ -1,6 +1,7 @@
 import { useReducer } from 'react'
 import { useCart } from '@/providers/cart-provider'
 import { CartItem } from './cart-item'
+import { EmptyCart } from './empty-cart'
 
 export function CartList() {
   const { cart, cartHasItems } = useCart()
@@ -22,6 +23,7 @@ export function CartList() {
             )
           })
         }
+        {!cartHasItems && (<EmptyCart />)}
         {/* Soma */}
         {cartHasItems && (
           <div>
