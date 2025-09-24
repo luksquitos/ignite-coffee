@@ -18,15 +18,34 @@ export function CartContextProvider({ children }: { children: ReactNode }) {
   const cartItemsCount = cart.length
 
   function addCoffeeToCart(cartItem: ICartItem) {
-    // FIXME Verificar se item já está no carrinho.
-    // Caso sim, apenas adicione a quantidade desejada
-    setCart(() => [...cart, cartItem])
+    const existingItem = cart.find(item => item.coffee.id === cartItem.coffee.id)
+
+    if (existingItem) {
+    // Se o item já existe, crie um novo array com a quantidade atualizada.
+      const updatedCart = cart.map(item =>
+        item.coffee.id === existingItem.coffee.id
+          ? { ...item, quantity: item.quantity + cartItem.quantity }
+          : item,
+      )
+      setCart(updatedCart)
+    }
+    else {
+    // Se o item não existe, adicione-o ao final do array.
+      setCart(prevCart => [...prevCart, cartItem])
+    }
+  }
+
+  function updateCoffeeQuantity(cartItem: ICartItem, newQuantity: number) {
+    const updatedCart = cart.map(item =>
+      item.coffee.id === cartItem.coffee.id
+        ? { ...item, quantity: newQuantity }
+        : item,
+    )
+    setCart(updatedCart)
   }
 
   function removeCoffeeFromCart(cartItem: ICartItem) {
-    // FIXME Verificar se item já está no carrinho.
-    // Caso sim, apenas retireg a quantidade desejada
-    setCart(() => cart.filter((item) => {
+    setCart(cart.filter((item) => {
       return item.coffee.id !== cartItem.coffee.id
     }))
   }
