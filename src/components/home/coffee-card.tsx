@@ -32,8 +32,8 @@ export function CoffeeCard({ coffee }: { coffee: ICoffeeCard }) {
         <p className="mt-2 mx-5 text-base-label text-center text-[0.875rem]">{coffee.description}</p>
         {/* Buy section */}
         <section className="mt-8 w-52 h-9 flex justify-between items-center gap-6 ">
-          <span className="centered gap-1">
-            <p className="text-[0.875rem] text-base-text">R$</p>
+          <span className="centered gap-1 w-17">
+            <p className="text-ms text-base-text">R$</p>
             <p className="font-baloo font-extrabold text-2xl text-base-text">{currentPrice.toFixed(2).replace('.', ',')}</p>
           </span>
           <form className="centered gap-2">
@@ -48,7 +48,7 @@ export function CoffeeCard({ coffee }: { coffee: ICoffeeCard }) {
 
         </section>
       </div>
-      <div className="bg-base-card mt-5 h-[19.375rem] rounded-tl-md rounded-br-md rounded-tr-[2.25rem] rounded-bl-[2.25rem]"></div>
+      <div className="bg-base-card mt-5 h-77.5 rounded-tl-md rounded-br-md rounded-tr-[2.25rem] rounded-bl-[2.25rem]"></div>
     </div>
   )
 }
