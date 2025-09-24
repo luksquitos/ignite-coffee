@@ -18,9 +18,7 @@ export function Header() {
 
         <NavLink to="/payment" className="bg-yellow-light relative rounded p-2.5">
           {/* Butão flutuante de itens */}
-          {
-            cartHasItems ? <div className="bg-yellow-dark rounded-full size-5 absolute -top-1.5 -right-2.5 centered text-white font-bold text-xs">{cartItemsCount}</div> : <></>
-          }
+          {cartHasItems && (<div className="bg-yellow-dark rounded-full size-5 absolute -top-1.5 -right-2.5 centered text-white font-bold text-xs">{cartItemsCount}</div>)}
           <ShoppingCartIcon weight="fill" className="text-yellow-dark text-2xl hover:cursor-pointer" />
         </NavLink>
       </div>
