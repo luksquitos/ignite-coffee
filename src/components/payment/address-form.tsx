@@ -1,11 +1,18 @@
+import type { AddressFormData } from '@/schemas/address-schema'
+import { zodResolver } from '@hookform/resolvers/zod'
 import { MapPinLineIcon } from '@phosphor-icons/react'
+import { useForm } from 'react-hook-form'
+import { addressSchema } from '@/schemas/address-schema'
 import { Input } from '../ui/input'
 
 export function AddressForm() {
+  
+
   return (
     <div className="centered-box mt-10!">
       <p className="text-base-subtitle text-lg font-bold">Complete seu pedido</p>
-      <form action="" className="mt-4  rounded-md p-10 bg-base-card">
+
+      <section className="mt-4 rounded-md p-10 bg-base-card">
         <main className="">
           <div className="flex items-start gap-2">
             <MapPinLineIcon className="size-5.5 text-yellow-dark" />
@@ -17,7 +24,7 @@ export function AddressForm() {
           {/* Inputs */}
           <div className="mt-8 grid grid-cols-1 gap-4">
             <div className="grid grid-cols-[2fr_3fr_1fr]">
-              <Input placeholder="CEP" className="h-10" />
+              <Input placeholder="CEP" className="h-10" {...register} />
             </div>
             <Input placeholder="Rua" className="h-10" />
             <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-3">
@@ -31,7 +38,7 @@ export function AddressForm() {
             </div>
           </div>
         </main>
-      </form>
+      </section>
     </div>
   )
 }
