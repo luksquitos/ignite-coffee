@@ -1,27 +1,26 @@
 import type { ICartItem } from '../../@types/cart-item-type'
 import type { ICoffeeCard } from '../../@types/coffee-card-type'
-import { MinusIcon, PlusIcon, ShoppingCartSimpleIcon } from '@phosphor-icons/react'
+import { ShoppingCartSimpleIcon } from '@phosphor-icons/react'
 import { useState } from 'react'
 import { useCart } from '../../providers/cart-provider'
 import { Counter } from '../ui/counter'
 
-export function CoffeeCard({ id, name, description, categories, price, image }: ICoffeeCard) {
+export function CoffeeCard({ coffee }: { coffee: ICoffeeCard }) {
   const [currentQuantity, setCurrentQuantity] = useState<number>(1)
-  const currentPrice = price * currentQuantity
+  const currentPrice = coffee.price * currentQuantity
   const { addCoffeeToCart } = useCart()
-  // Objeto a ser adicionado ao carrinho
   const coffeeToAdd: ICartItem = {
-    coffee: { id, name, description, categories, price, image },
+    coffee,
     quantity: currentQuantity,
   }
 
   return (
     <div className="h-80 relative">
       <div className="flex flex-col items-center absolute">
-        <img src={image} alt="Ícone do café" />
+        <img src={coffee.image} alt="Ícone do café" />
         <div className="centered gap-1">
           {
-            categories.map((category) => {
+            coffee.categories.map((category) => {
               return (
                 <p className="mt-3 px-2 py-1 rounded-full bg-yellow-light font-bold text-[10px] text-yellow-dark">{category.toUpperCase()}</p>
               )
@@ -29,8 +28,8 @@ export function CoffeeCard({ id, name, description, categories, price, image }: 
           }
         </div>
 
-        <p className="mt-4 font-baloo font-bold text-xl text-base-subtitle">{name}</p>
-        <p className="mt-2 mx-5 text-base-label text-center text-[0.875rem]">{description}</p>
+        <p className="mt-4 font-baloo font-bold text-xl text-base-subtitle">{coffee.name}</p>
+        <p className="mt-2 mx-5 text-base-label text-center text-[0.875rem]">{coffee.description}</p>
         {/* Buy section */}
         <section className="mt-8 w-52 h-9 flex justify-between items-center gap-6 ">
           <span className="centered gap-1">

@@ -8,16 +8,7 @@ export function CoffeeList() {
       <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-14">
         {
           coffeeData.map((coffee) => {
-            return (
-              <CoffeeCard
-                id={coffee.id}
-                name={coffee.name}
-                categories={coffee.categories}
-                description={coffee.description}
-                price={coffee.price}
-                image={coffee.image}
-              />
-            )
+            return (<CoffeeCard key={coffee.id} coffee={coffee} />)
           })
         }
 
