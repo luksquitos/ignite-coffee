@@ -7,10 +7,10 @@ export function EmptyCart() {
       <CoffeeIcon
         weight="fill"
         size={84}
-        className="text-base-subtitle"
+        className="text-yellow"
       />
 
-      <p className="mt-8 text-base-subtitle text-lg font-bold">Nenhum café selecionado</p>
+      <p className="mt-6 text-base-subtitle text-3xl font-extrabold">Nenhum café selecionado</p>
       <p className="text-base-text text-sm">Oops! Parece que seu carrinho está vazio. </p>
 
       <NavLink to="/" className="w-full mt-6  py-2.5 bg-yellow text-center text-white font-bold text-sm rounded-md hover:bg-yellow-dark hover:cursor-pointer transition ">
