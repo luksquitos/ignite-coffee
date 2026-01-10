@@ -1,10 +1,15 @@
+import type { UseFormReturn } from 'react-hook-form'
+import type { AddressFormData } from '@/schemas/address-schema'
 import { BankIcon, CreditCardIcon, CurrencyDollarIcon, MoneyIcon } from '@phosphor-icons/react'
-import { useState } from 'react'
+import { Controller } from 'react-hook-form'
 import { PaymentOption } from './payment-option'
 
-export function PaymentOptionsForm() {
-  const [paymentSelected, setPaymentSelected] = useState('')
+interface PaymentOptionsProps {
+  form: UseFormReturn<AddressFormData>
+}
 
+export function PaymentOptionsForm({ form }: PaymentOptionsProps) {
+  const errorMessage = form.formState.errors?.cartao?.message
   return (
     <section className="mt-3 h-52 p-10 rounded-md bg-base-card">
       <main>
@@ -16,26 +21,37 @@ export function PaymentOptionsForm() {
           </div>
         </div>
         {/* Options */}
-        <div className=" mt-8 centered gap-3 flex-wrap">
-          <PaymentOption
-            icon={CreditCardIcon}
-            name="Cartão de Crédito"
-            onSelect={() => setPaymentSelected('Cartão de Crédito')}
-            isActive={paymentSelected === 'Cartão de Crédito'}
-          />
-          <PaymentOption
-            icon={BankIcon}
-            name="Cartão de Débito"
-            onSelect={() => setPaymentSelected('Cartão de Débito')}
-            isActive={paymentSelected === 'Cartão de Débito'}
-          />
-          <PaymentOption
-            icon={MoneyIcon}
-            name="Dinheiro"
-            onSelect={() => setPaymentSelected('Dinheiro')}
-            isActive={paymentSelected === 'Dinheiro'}
-          />
-        </div>
+        <Controller
+          name="cartao"
+          control={form.control}
+          render={({ field }) => (
+            <div className=" mt-8 centered gap-3 flex-wrap">
+              <PaymentOption
+                icon={CreditCardIcon}
+                name="Cartão de Crédito"
+                onSelect={() => field.onChange('credit')}
+                isActive={field.value === 'credit'}
+              />
+              <PaymentOption
+                icon={BankIcon}
+                name="Cartão de Débito"
+                onSelect={() => field.onChange('debit')}
+                isActive={field.value === 'debit'}
+              />
+              <PaymentOption
+                icon={MoneyIcon}
+                name="Dinheiro"
+                onSelect={() => field.onChange('money')}
+                isActive={field.value === 'money'}
+              />
+            </div>
+          )}
+        />
+        {errorMessage && (
+          <p>
+            {errorMessage}
+          </p>
+        )}
 
       </main>
     </section>

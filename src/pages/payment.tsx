@@ -7,17 +7,17 @@ import { AddressForm } from '../components/payment/address-form'
 import { PaymentOptionsForm } from '../components/payment/payment-options-form'
 
 export function Payment() {
-  const { register, handleSubmit } = useForm<AddressFormData>({ resolver: zodResolver(addressSchema) })
-
+  const form = useForm<AddressFormData>({ resolver: zodResolver(addressSchema) })
+  console.log('erros', form.formState.errors)
   function handleFormSubmit(data: AddressFormData) {
-    console.log(data)
+    console.log('data', data)
   }
 
   return (
-    <form onSubmit={handleSubmit(handleFormSubmit)} className="centered-box border grid grid-cols-1 lg:grid-cols-[55%_45%] gap-8">
+    <form onSubmit={form.handleSubmit(handleFormSubmit)} className="centered-box border grid grid-cols-1 lg:grid-cols-[55%_45%] gap-8">
       <div>
-        <AddressForm register={register} />
-        <PaymentOptionsForm />
+        <AddressForm form={form} />
+        <PaymentOptionsForm form={form} />
       </div>
       <CartList />
     </form>
