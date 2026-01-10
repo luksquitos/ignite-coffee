@@ -2,6 +2,7 @@ import type { ICartItem } from '../../@types/cart-item-type'
 import type { ICoffeeCard } from '../../@types/coffee-card-type'
 import { ShoppingCartSimpleIcon } from '@phosphor-icons/react'
 import { useState } from 'react'
+import { toast } from 'sonner'
 import { useCart } from '../../providers/cart-provider'
 import { Counter } from '../ui/counter'
 
@@ -42,7 +43,13 @@ export function CoffeeCard({ coffee }: { coffee: ICoffeeCard }) {
               setValue={setCurrentQuantity}
               className="py-2"
             />
-            <button type="button" onClick={() => addCoffeeToCart(coffeeToAdd)}>
+            <button
+              type="button"
+              onClick={() => {
+                addCoffeeToCart(coffeeToAdd)
+                toast.success('Café adicionado ao carrinho com sucesso')
+              }}
+            >
               <ShoppingCartSimpleIcon weight="fill" className="p-2 size-9 bg-purple-dark text-base-card rounded-md hover:bg-purple hover:cursor-pointer transition-colors" />
             </button>
           </form>

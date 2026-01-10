@@ -1,12 +1,13 @@
-import { Outlet } from "react-router-dom";
-import { Header } from "../shared/header";
+import { Outlet } from 'react-router-dom'
+import { Toaster } from '@/components/ui/sonner'
+import { Header } from '../shared/header'
 
-
-export function DefaultLayout(){
+export function DefaultLayout() {
   return (
     <div>
-      <Header/>
-      <Outlet/>
+      <Header />
+      <Outlet />
+      <Toaster />
     </div>
   )
 }
