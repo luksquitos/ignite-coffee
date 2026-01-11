@@ -1,11 +1,11 @@
 import type { UseFormReturn } from 'react-hook-form'
-import type { AddressFormData } from '@/schemas/address-schema'
+import type { Payment } from '@/schemas/payment-schema'
 import { BankIcon, CreditCardIcon, CurrencyDollarIcon, MoneyIcon } from '@phosphor-icons/react'
 import { Controller } from 'react-hook-form'
 import { PaymentOption } from './payment-option'
 
 interface PaymentOptionsProps {
-  form: UseFormReturn<AddressFormData>
+  form: UseFormReturn<Payment>
 }
 
 export function PaymentOptionsForm({ form }: PaymentOptionsProps) {

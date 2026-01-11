@@ -1,10 +1,10 @@
 import type { FieldValues, UseFormRegister, UseFormReturn } from 'react-hook-form'
-import type { AddressFormData } from '@/schemas/address-schema'
+import type { Payment } from '@/schemas/payment-schema'
 import { MapPinLineIcon } from '@phosphor-icons/react'
 import { Input } from '../ui/input'
 
 interface AddressFormProps {
-  form: UseFormReturn<AddressFormData>
+  form: UseFormReturn<Payment>
 }
 
 export function AddressForm({ form }: AddressFormProps) {
