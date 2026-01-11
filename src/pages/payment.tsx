@@ -26,7 +26,7 @@ export function PaymentPage() {
   }
 
   return (
-    <form onSubmit={form.handleSubmit(handleFormSubmit)} className="centered-box border grid grid-cols-1 lg:grid-cols-[55%_45%] gap-8">
+    <form onSubmit={form.handleSubmit(handleFormSubmit)} className="centered-box grid grid-cols-1 lg:grid-cols-[55%_45%] gap-8">
       <div>
         <AddressForm form={form} />
         <PaymentOptionsForm form={form} />

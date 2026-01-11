@@ -1,10 +1,12 @@
 import { MapPinIcon, ShoppingCartIcon } from '@phosphor-icons/react'
 import { NavLink } from 'react-router-dom'
+import { useUserPayment } from '@/providers/user-payment-provider'
 import igniteLogo from '../../assets/logo.svg'
 import { useCart } from '../../providers/cart-provider'
 
 export function Header() {
   const { cartHasItems, cartItemsCount } = useCart()
+  const { userPayment } = useUserPayment()
   return (
     <header className="py-8 flex items-center justify-between centered-box">
       <NavLink to="/">
@@ -13,7 +15,7 @@ export function Header() {
       <div className="flex gap-3">
         <button className="bg-purple-light flex items-center gap-1 rounded px-[10px] py-2 text-purple-dark font-bold">
           <MapPinIcon weight="fill" className="text-purple" size={22} />
-          Porto Alegre, RS
+          {`${userPayment?.cidade}, ${userPayment?.uf}`}
         </button>
 
         <NavLink to="/payment" className="bg-yellow-light relative rounded p-2.5">

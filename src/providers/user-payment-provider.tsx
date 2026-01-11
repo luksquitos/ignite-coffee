@@ -10,7 +10,10 @@ interface IUserContext {
 const UserPaymentContext = createContext<IUserContext | undefined>(undefined)
 
 export function UserPaymentProvider({ children }: { children: ReactNode }) {
-  const [userPayment, setUserPayment] = useState<Payment | undefined>(undefined)
+  const [userPayment, setUserPayment] = useState<Payment>({
+    cidade: 'Anápolis',
+    uf: 'GO',
+  })
 
   return (
     <UserPaymentContext.Provider value={{ userPayment, setUserPayment }}>
