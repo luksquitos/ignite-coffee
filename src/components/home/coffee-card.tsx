@@ -47,7 +47,7 @@ export function CoffeeCard({ coffee }: { coffee: ICoffeeCard }) {
               type="button"
               onClick={() => {
                 addCoffeeToCart(coffeeToAdd)
-                toast.success('Café adicionado ao carrinho com sucesso')
+                toast.success(`${coffee.name} adicionado ao carrinho com sucesso`)
               }}
             >
               <ShoppingCartSimpleIcon weight="fill" className="p-2 size-9 bg-purple-dark text-base-card rounded-md hover:bg-purple hover:cursor-pointer transition-colors" />
